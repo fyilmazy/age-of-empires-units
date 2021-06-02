@@ -1,0 +1,16 @@
+.Footer {
+  footer {
+    padding: 30px 20px;
+    background-color: #e0f7fa;
+    .MuiContainer-root {
+      .MuiTypography-root {
+        text-align: center;
+      }
+      .MuiTypograhy-body2 {
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
