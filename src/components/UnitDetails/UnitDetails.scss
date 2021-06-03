@@ -3,4 +3,11 @@
   flex-direction: column;
   flex: 1;
   overflow: hidden;
+  .MuiButton-containedPrimary {
+    max-width: 120px;
+    margin: 15px;
+    &:hover {
+      background-color: #b40054;
+    }
+  }
 }
