@@ -1,49 +1,56 @@
-//
-// Table
-//
-.MuiPaper-root {
-  margin: auto;
-  .MuiTable-root {
-    // Table Head
+.Units {
+  //
+  // Table
+  //
+  .MuiPaper-root {
+    margin: auto;
+    max-width: 700px;
+    margin-bottom: 50px;
+    & > .MuiTable-root {
+      margin: auto;
+      max-width: 700px;
+      // Table Head
+      //
+      .MuiTableHead-root {
+        .MuiTableRow-root {
+          border-bottom: 1px solid rgb(224, 224, 224);
+          display: flex;
+          .MuiTableCell-root {
+            flex: 10;
+            cursor: default;
+          }
+          th:first-child {
+            flex: 1;
+          }
+          th:nth-child(4) {
+            flex: 15;
+          }
+        }
+      }
+      tr:hover {
+        background: rgb(214, 214, 214);
+        cursor: pointer;
+      }
+    }
+
+    // Table Body
     //
-    .MuiTableHead-root {
+    .MuiTableBody-root {
       .MuiTableRow-root {
-        border-bottom: 1px solid rgb(224, 224, 224);
         display: flex;
-        .MuiTableCell-root {
-          flex: 10;
-          cursor: default;
-        }
-        th:first-child {
+        th {
           flex: 1;
+          border-right: 1px solid rgb(224, 224, 224);
+          text-align: center;
+          min-width: 25px;
         }
-        th:nth-child(4) {
+        td {
+          text-align: center;
+          flex: 10;
+        }
+        td:nth-child(4) {
           flex: 15;
         }
-      }
-    }
-    tr:hover {
-      background: rgb(214, 214, 214);
-      cursor: pointer;
-    }
-  }
-
-  // Table Body
-  //
-  .MuiTableBody-root {
-    .MuiTableRow-root {
-      display: flex;
-      th {
-        flex: 1;
-        border-right: 1px solid rgb(224, 224, 224);
-        text-align: center;
-      }
-      td {
-        text-align: center;
-        flex: 10;
-      }
-      td:nth-child(4) {
-        flex: 15;
       }
     }
   }

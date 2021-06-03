@@ -1,6 +1,7 @@
 //
 // Cost Selectors
 //
+
 .costSelectors {
   max-width: 700px;
   margin: 30px auto;
@@ -9,7 +10,35 @@
   flex: 1;
   .costSelectorWrapper {
     min-width: 700px;
-    margin-left: auto;
-    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    .MuiTypography-root {
+      margin: auto;
+    }
+    .MuiSlider-root {
+      max-width: 50%;
+      margin-right: 10%;
+      .MuiSlider-rail {
+        height: 4px;
+      }
+      .MuiSlider-track {
+        height: 4px;
+      }
+      .MuiSlider-thumb {
+        width: 14px;
+        height: 14px;
+        margin-left: -4px;
+      }
+      .MuiSlider-thumb {
+        .PrivateValueLabel-circle-8 {
+          width: 34px;
+          height: 34px;
+        }
+      }
+      .Mui-disabled {
+        margin-top: -5px;
+      }
+    }
   }
 }

@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./Units.scss";
 import { connect } from "react-redux";
 import { increase, decrease, logSaga } from "../../redux/actions";
-import testUnits from "../../utils/testUnits";
 import formControlsDefault from "../../utils/formControlsDefault";
 import AgeSelector from "./Form/AgeSelector";
 import CostSelectors from "./Form/CostSelectors";
@@ -75,7 +74,7 @@ const Units = ({ number, state, history }) => {
         handleFormSliderCommitted={handleFormSliderCommitted}
       />
 
-      <FilteredUnitsTable testUnits={testUnits} />
+      <FilteredUnitsTable />
     </div>
   );
 };
