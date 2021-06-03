@@ -4,12 +4,14 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import StyledRadio from "./StyledRadio";
+import { connect } from "react-redux";
+import { updateAge } from "../../../../redux/actions";
 
 /**
  * Renders age selection form
  */
 
-const AgeSelector = ({ handleFormAge }) => {
+const AgeSelector = ({ handleFormAge, age }) => {
   return (
     <div className="ageSelector">
       <FormControl component="fieldset">
@@ -21,31 +23,31 @@ const AgeSelector = ({ handleFormAge }) => {
         >
           <FormControlLabel
             value="all"
-            onClick={(e) => handleFormAge(e)}
+            onClick={() => updateAge("all")}
             control={<StyledRadio label="All" />}
           />
 
           <FormControlLabel
             value="dark"
-            onClick={(e) => handleFormAge(e)}
+            onClick={() => updateAge("dark")}
             control={<StyledRadio label="Dark" />}
           />
 
           <FormControlLabel
             value="feudal"
-            onClick={(e) => handleFormAge(e)}
+            onClick={() => updateAge("feudal")}
             control={<StyledRadio label="Feudal" />}
           />
 
           <FormControlLabel
             value="castle"
-            onClick={(e) => handleFormAge(e)}
+            onClick={() => updateAge("castle")}
             control={<StyledRadio label="Castle" />}
           />
 
           <FormControlLabel
             value="imperial"
-            onClick={(e) => handleFormAge(e)}
+            onClick={() => updateAge("imperial")}
             control={<StyledRadio label="Imperial" />}
           />
         </RadioGroup>
@@ -54,4 +56,9 @@ const AgeSelector = ({ handleFormAge }) => {
   );
 };
 
-export default AgeSelector;
+const mapStateToProps = (state) => {
+  const { age } = state.form;
+  return { age };
+};
+
+export default connect(mapStateToProps)(AgeSelector);

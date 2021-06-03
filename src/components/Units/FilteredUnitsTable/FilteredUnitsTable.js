@@ -56,7 +56,7 @@ const FilteredUnitsTable = () => {
         <TableBody>
           {units.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.id}
               onClick={() => history.push("/units/" + row.id)}
             >
               <TableCell component="th" scope="row">

@@ -2,97 +2,116 @@ import "./CostSelectors.scss";
 import Slider from "@material-ui/core/Slider";
 import Switch from "@material-ui/core/Switch";
 import Typography from "@material-ui/core/Typography";
+import {
+  updateSlider,
+  updateSliderCommitted,
+  updateSwitch,
+} from "../../../../redux/actionsCreators";
+import { connect } from "react-redux";
 
 /**
  * Renders Switches and Sliders for costs selection
  */
-const CostSelectors = ({
-  handleFormSwitch,
-  formControls,
-  sliderValues,
-  setSliderValues,
-  handleFormSliderCommitted,
-}) => {
+const CostSelectors = ({ form, slider }) => {
+  const handleFormSwitch = (e) => {
+    updateSwitch({ costType: e.target.name });
+  };
+
+  // Handle slider commited selections
+  const handleFormSliderCommitted = (e, newValue) => {
+    updateSliderCommitted({
+      newValue,
+      costType: e.target.ariaLabel,
+    });
+  };
   return (
     <div className="costSelectors">
       <div className="costSelectorWrapper">
         <Switch
-          checked={formControls.costs.food.isActive}
+          checked={form.costs.food.isActive}
           onChange={(e) => handleFormSwitch(e)}
           name="food"
           inputProps={{ "aria-label": "secondary checkbox" }}
         />
         <Typography id="discrete-slider" gutterBottom>
-          Food {formControls.costs.food.min} - {formControls.costs.food.max}
+          Food {slider.food.min} - {slider.food.max}
         </Typography>
         <Slider
           defaultValue={[50, 100]}
-          value={sliderValues.food}
+          value={slider.food.value}
           aria-label="food"
-          onChange={(e, value) =>
-            setSliderValues({ ...sliderValues, food: value })
-          }
+          onChange={(e, value) => {
+            updateSlider({ costType: "food", costValue: value });
+          }}
           onChangeCommitted={handleFormSliderCommitted}
           aria-labelledby="range-slider"
           valueLabelDisplay="auto"
           step={5}
           min={0}
           max={200}
-          disabled={!formControls.costs.food.isActive}
+          disabled={!form.costs.food.isActive}
         />
       </div>
       <div className="costSelectorWrapper">
         <Switch
-          checked={formControls.costs.wood.isActive}
+          checked={form.costs.wood.isActive}
           onChange={(e) => handleFormSwitch(e)}
           name="wood"
         />
         <Typography id="discrete-slider" gutterBottom>
-          Wood {formControls.costs.wood.min} - {formControls.costs.wood.max}
+          Wood {slider.wood.min} - {slider.wood.max}
         </Typography>
         <Slider
           defaultValue={[50, 100]}
-          value={sliderValues.wood}
+          value={slider.wood.value}
           aria-label="wood"
-          onChange={(e, value) =>
-            setSliderValues({ ...sliderValues, wood: value })
-          }
-          onChangeCommitted={handleFormSliderCommitted}
+          onChange={(e, value) => {
+            updateSlider({ costType: "wood", costValue: value });
+          }}
+          // onChangeCommitted={handleFormSliderCommitted}
           aria-labelledby="range-slider"
           valueLabelDisplay="auto"
           step={5}
           min={0}
           max={200}
-          disabled={!formControls.costs.wood.isActive}
+          disabled={!form.costs.wood.isActive}
         />
       </div>
       <div className="costSelectorWrapper">
         <Switch
-          checked={formControls.costs.gold.isActivated}
+          checked={form.costs.gold.isActivated}
           onChange={(e) => handleFormSwitch(e)}
           name="gold"
         />
         <Typography id="discrete-slider" gutterBottom>
-          Gold {formControls.costs.gold.min} - {formControls.costs.gold.max}
+          Gold {slider.gold.min} - {slider.gold.max}
         </Typography>
         <Slider
           defaultValue={50}
-          value={sliderValues.gold}
+          value={slider.gold.value}
           aria-label="gold"
-          onChange={(e, value) =>
-            setSliderValues({ ...sliderValues, gold: value })
-          }
+          onChange={(e, value) => {
+            updateSlider({ costType: "gold", costValue: value });
+          }}
           onChangeCommitted={handleFormSliderCommitted}
           aria-labelledby="range-slider"
           valueLabelDisplay="auto"
           step={5}
           min={0}
           max={200}
-          disabled={!formControls.costs.gold.isActive}
+          disabled={!form.costs.gold.isActive}
         />
       </div>
     </div>
   );
 };
 
-export default CostSelectors;
+const mapStateToProps = (state) => {
+  const { form, slider } = state;
+  return {
+    form,
+    slider,
+  };
+};
+
+export default connect(mapStateToProps)(CostSelectors);
