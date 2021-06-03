@@ -9,7 +9,6 @@ import { createBrowserHistory } from "history";
 
 function App() {
   const history = createBrowserHistory();
-  console.log("history", history);
   return (
     <Router history={history}>
       <div className="App">

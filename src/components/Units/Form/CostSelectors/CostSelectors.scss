@@ -1,0 +1,15 @@
+//
+// Cost Selectors
+//
+.costSelectors {
+  max-width: 700px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  .costSelectorWrapper {
+    min-width: 700px;
+    margin-left: auto;
+    border: 1px solid black;
+  }
+}
