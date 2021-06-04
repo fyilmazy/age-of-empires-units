@@ -10,4 +10,57 @@
       background-color: #b40054;
     }
   }
+  .MuiPaper-root {
+    margin: auto;
+    max-width: 700px;
+    margin-bottom: 50px;
+    & > .MuiTable-root {
+      margin: auto;
+      max-width: 700px;
+      // Table Head
+      //
+
+      tr:hover {
+        background: rgb(214, 214, 214);
+        cursor: default;
+      }
+    }
+
+    // Table Body
+    //
+    .MuiTableBody-root {
+      #description-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        #description-t,
+        #description-d {
+          flex: 10;
+        }
+      }
+      .MuiTableRow-root {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        .MuiTableCell-root {
+          align-items: center;
+          min-height: 20px;
+        }
+        th {
+          flex: 1;
+          border-right: 1px solid rgb(224, 224, 224);
+          text-align: center;
+          min-width: 25px;
+        }
+        td {
+          text-align: center;
+          flex: 10;
+          min-height: 360px;
+        }
+        td:nth-child(4) {
+          flex: 15;
+        }
+      }
+    }
+  }
 }
