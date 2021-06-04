@@ -26,7 +26,8 @@ const UPDATE_AGE = "UPDATE_AGE";
 const UPDATE_SWITCH = "UPDATE_SWITCH";
 const UPDATE_SLIDER_COMMITTED = "UPDATE_SLIDER_COMMITTED";
 
-const formReducer = (state = INITIAL_STATE, action) => {
+const filterReducer = (state = INITIAL_STATE, action) => {
+  console.log("payload in filterReducer:", action.payload);
   switch (action.type) {
     case UPDATE_AGE:
       return { ...state, age: action.payload };
@@ -62,4 +63,4 @@ const formReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default formReducer;
+export default filterReducer;

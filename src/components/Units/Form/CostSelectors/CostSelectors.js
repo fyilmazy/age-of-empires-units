@@ -6,13 +6,13 @@ import {
   updateSlider,
   updateSliderCommitted,
   updateSwitch,
-} from "../../../../redux/actionsCreators";
+} from "../../../../redux/actionCreators";
 import { connect } from "react-redux";
 
 /**
  * Renders Switches and Sliders for costs selection
  */
-const CostSelectors = ({ form, slider }) => {
+const CostSelectors = ({ filter, slider }) => {
   const handleFormSwitch = (e) => {
     updateSwitch({ costType: e.target.name });
   };
@@ -24,14 +24,14 @@ const CostSelectors = ({ form, slider }) => {
       costType: e.target.ariaLabel,
     });
   };
+
   return (
     <div className="costSelectors">
       <div className="costSelectorWrapper">
         <Switch
-          checked={form.costs.food.isActive}
+          checked={filter.costs.food.isActive}
           onChange={(e) => handleFormSwitch(e)}
           name="food"
-          inputProps={{ "aria-label": "secondary checkbox" }}
         />
         <Typography id="discrete-slider" gutterBottom>
           Food {slider.food.min} - {slider.food.max}
@@ -49,12 +49,12 @@ const CostSelectors = ({ form, slider }) => {
           step={5}
           min={0}
           max={200}
-          disabled={!form.costs.food.isActive}
+          disabled={!filter.costs.food.isActive}
         />
       </div>
       <div className="costSelectorWrapper">
         <Switch
-          checked={form.costs.wood.isActive}
+          checked={filter.costs.wood.isActive}
           onChange={(e) => handleFormSwitch(e)}
           name="wood"
         />
@@ -68,18 +68,18 @@ const CostSelectors = ({ form, slider }) => {
           onChange={(e, value) => {
             updateSlider({ costType: "wood", costValue: value });
           }}
-          // onChangeCommitted={handleFormSliderCommitted}
+          onChangeCommitted={handleFormSliderCommitted}
           aria-labelledby="range-slider"
           valueLabelDisplay="auto"
           step={5}
           min={0}
           max={200}
-          disabled={!form.costs.wood.isActive}
+          disabled={!filter.costs.wood.isActive}
         />
       </div>
       <div className="costSelectorWrapper">
         <Switch
-          checked={form.costs.gold.isActivated}
+          checked={filter.costs.gold.isActive}
           onChange={(e) => handleFormSwitch(e)}
           name="gold"
         />
@@ -99,7 +99,7 @@ const CostSelectors = ({ form, slider }) => {
           step={5}
           min={0}
           max={200}
-          disabled={!form.costs.gold.isActive}
+          disabled={!filter.costs.gold.isActive}
         />
       </div>
     </div>
@@ -107,9 +107,9 @@ const CostSelectors = ({ form, slider }) => {
 };
 
 const mapStateToProps = (state) => {
-  const { form, slider } = state;
+  const { filter, slider } = state;
   return {
-    form,
+    filter,
     slider,
   };
 };

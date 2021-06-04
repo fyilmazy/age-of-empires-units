@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./FilteredUnitsTable.scss";
+import { connect } from "react-redux";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -8,35 +9,23 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { useHistory } from "react-router-dom";
-import getUnitsData from "../../../utils/getUnitsData";
+import { fetchUnits } from "../../../redux/actionCreators";
+import getFilterResult from "../../../utils/filterUnits";
 
 /**
  *  Renders the filtered units into Table
  */
 
-const FilteredUnitsTable = () => {
-  const [units, setUnits] = useState([]);
+const FilteredUnitsTable = ({ units, filter }) => {
   let history = useHistory();
 
-  // DATA FETCH
-
-  // Fetch units data by axios
-  const fetchUnitsData = async () => {
-    const data = await getUnitsData();
-    // iterate rows
-    const rows = data.map((item) => {
-      const { id, name, age, cost } = item;
-      return { id, name, age, cost };
-    });
-    setUnits(rows);
-  };
-
-  // Fetch units data initially
   useEffect(() => {
-    fetchUnitsData();
+    fetchUnits();
   }, []);
 
-  // create rows from testUnits object to use in Table
+  useEffect(() => {
+    console.log("getFilterResult()", getFilterResult(units, filter));
+  }, [filter]);
 
   return (
     <TableContainer component={Paper}>
@@ -52,41 +41,52 @@ const FilteredUnitsTable = () => {
         </TableHead>
 
         {/* Body part of table */}
-
-        <TableBody>
-          {units.map((row) => (
-            <TableRow
-              key={row.id}
-              onClick={() => history.push("/units/" + row.id)}
-            >
-              <TableCell component="th" scope="row">
-                {row.id}
-              </TableCell>
-              <TableCell align="justify">{row.name}</TableCell>
-              <TableCell align="right">{row.age}</TableCell>
-              <TableCell align="right">
-                {row.cost
-                  ? row.cost.Food !== (null || undefined)
-                    ? ` Food: ${row.cost.Food},`
-                    : ""
-                  : ""}
-                {row.cost
-                  ? row.cost.Wood !== (null || undefined)
-                    ? ` Wood: ${row.cost.Wood},`
-                    : ""
-                  : ""}
-                {row.cost
-                  ? row.cost.Gold !== (null || undefined)
-                    ? ` Gold: ${row.cost.Gold}`
-                    : ""
-                  : "No costs"}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        {units.length > 0 ? (
+          <TableBody>
+            {units.map((row) => (
+              <TableRow
+                key={row.id}
+                onClick={() => history.push("/units/" + row.id)}
+              >
+                <TableCell component="th" scope="row">
+                  {row.id}
+                </TableCell>
+                <TableCell align="justify">{row.name}</TableCell>
+                <TableCell align="right">{row.age}</TableCell>
+                <TableCell align="right">
+                  {row.cost
+                    ? row.cost.Food !== (null || undefined)
+                      ? ` Food: ${row.cost.Food},`
+                      : ""
+                    : ""}
+                  {row.cost
+                    ? row.cost.Wood !== (null || undefined)
+                      ? ` Wood: ${row.cost.Wood},`
+                      : ""
+                    : ""}
+                  {row.cost
+                    ? row.cost.Gold !== (null || undefined)
+                      ? ` Gold: ${row.cost.Gold}`
+                      : ""
+                    : "No costs"}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        ) : (
+          ""
+        )}
       </Table>
     </TableContainer>
   );
 };
 
-export default FilteredUnitsTable;
+const mapStateToProps = (state) => {
+  const { units, filter } = state;
+  return {
+    units,
+    filter,
+  };
+};
+
+export default connect(mapStateToProps)(FilteredUnitsTable);

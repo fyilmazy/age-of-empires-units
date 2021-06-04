@@ -1,12 +1,10 @@
 import { combineReducers } from "redux";
-import testReducer from "./testReducer";
-import formReducer from "./formReducer";
+import filterReducer from "./filterReducer";
 import unitsReducer from "./unitsReducer";
 import sliderHelperReducer from "./sliderHelperReducer";
 
 const rootReducer = combineReducers({
-  test: testReducer,
-  form: formReducer,
+  filter: filterReducer,
   units: unitsReducer,
   slider: sliderHelperReducer,
 });

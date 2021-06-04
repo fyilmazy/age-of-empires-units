@@ -1,8 +1,9 @@
 import { takeLatest, put, delay, all } from "redux-saga/effects";
-import watchTest from "./testSaga";
+import watchUnits from "./unitsSaga";
+import filterSaga from "./filterSaga";
 
 function* rootSaga() {
-  yield all([watchTest()]);
+  yield all([watchUnits(), filterSaga()]);
 }
 
 export default rootSaga;

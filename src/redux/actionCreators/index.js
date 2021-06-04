@@ -1,11 +1,13 @@
-import logSaga from "./logSaga";
 import updateAge from "./updateAge";
 import updateSlider from "./updateSlider";
 import updateSliderCommitted from "./updateSliderCommitted";
 import updateSwitch from "./updateSwitch";
+import fetchUnits from "./fetchUnitsSaga";
+
+// TODO: combine actions by category
 
 const actions = {
-  logSaga,
+  fetchUnits,
   updateAge,
   updateSlider,
   updateSliderCommitted,
@@ -14,7 +16,7 @@ const actions = {
 
 export {
   actions as default,
-  logSaga,
+  fetchUnits,
   updateAge,
   updateSlider,
   updateSliderCommitted,

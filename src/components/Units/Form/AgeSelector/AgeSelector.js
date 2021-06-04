@@ -5,21 +5,21 @@ import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import StyledRadio from "./StyledRadio";
 import { connect } from "react-redux";
-import { updateAge } from "../../../../redux/actions";
+import { updateAge } from "../../../../redux/actionCreators";
 
 /**
  * Renders age selection form
  */
 
-const AgeSelector = ({ handleFormAge, age }) => {
+const AgeSelector = ({ age }) => {
   return (
     <div className="ageSelector">
       <FormControl component="fieldset">
         <FormLabel component="legend">Ages</FormLabel>
         <RadioGroup
-          defaultValue="all"
           color="primary"
           aria-label="outlined primary button group"
+          value={age || "all"}
         >
           <FormControlLabel
             value="all"
@@ -57,7 +57,7 @@ const AgeSelector = ({ handleFormAge, age }) => {
 };
 
 const mapStateToProps = (state) => {
-  const { age } = state.form;
+  const { age } = state.filter;
   return { age };
 };
 
