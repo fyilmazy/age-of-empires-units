@@ -1,4 +1,5 @@
 import { takeLatest, put, all } from "redux-saga/effects";
+import { filterUnits } from "./unitsSaga";
 
 // Worker Sagas
 
@@ -25,11 +26,12 @@ function* updateSliderCommitted(payload) {
 // Watcher Sagas
 function* watchUpdateAge() {
   yield takeLatest("UPDATE_AGE_SAGA", updateAge);
+  yield takeLatest("UPDATE_AGE", filterUnits);
 }
 
 function* watchUpdateSwitch() {
-  console.log("selam");
   yield takeLatest("UPDATE_SWITCH_SAGA", updateSwitch);
+  yield takeLatest("UPDATE_SWITCH", filterUnits);
 }
 
 function* watchSliderUpdate() {
@@ -38,6 +40,7 @@ function* watchSliderUpdate() {
 
 function* watchSliderCommitted() {
   yield takeLatest("UPDATE_SLIDER_COMMITTED_SAGA", updateSliderCommitted);
+  yield takeLatest("UPDATE_SLIDER_COMMITTED", filterUnits);
 }
 
 function* filterSaga() {

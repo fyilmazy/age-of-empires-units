@@ -7,7 +7,8 @@ const Age = {
 };
 
 const filterAges = (unit, selectedAge) => {
-  return Age[unit.age] <= Age[selectedAge]; // Imperial
+  const unitAge = unit.age.toLowerCase();
+  return Age[unitAge] <= Age[selectedAge];
 };
 
 const filterMaterial = (unit, selectedMaterial, min = 0, max = 200) => {
@@ -26,18 +27,18 @@ const getFilterResult = (units, filter) => {
 
   if (food.isActive) {
     result = result.filter((unit) =>
-      filterMaterial(unit, "food", food.min, food.max),
+      filterMaterial(unit, "Food", food.min, food.max),
     );
   }
 
   if (wood.isActive) {
     result = result.filter((unit) =>
-      filterMaterial(unit, "wood", wood.min, wood.max),
+      filterMaterial(unit, "Wood", wood.min, wood.max),
     );
   }
   if (gold.isActive) {
     result = result.filter((unit) =>
-      filterMaterial(unit, "gold", gold.min, gold.max),
+      filterMaterial(unit, "Gold", gold.min, gold.max),
     );
   }
 
@@ -45,15 +46,3 @@ const getFilterResult = (units, filter) => {
 };
 
 export default getFilterResult;
-
-///
-// const getFilterResult = (filter) => {
-//     const { } = filter;
-//     return getUnits().filter((unit) => {
-//     return filterAges(unit, filter.selectedAge) &&
-//       (filter.isWoodFilterActivated && filterMaterial(unit, "wood", filter.woodMin, filter.woodMax)) &&
-//       (filter.isWoodFilterActivated && filterMaterial(unit, "wood", filter.woodMin, filter.woodMax)) &&
-//       (filter.isWoodFilterActivated && filterMaterial(unit, "wood", filter.woodMin, filter.woodMax))
-
-//   });
-// };

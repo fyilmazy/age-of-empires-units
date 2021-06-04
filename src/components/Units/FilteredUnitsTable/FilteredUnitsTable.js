@@ -10,22 +10,17 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { useHistory } from "react-router-dom";
 import { fetchUnits } from "../../../redux/actionCreators";
-import getFilterResult from "../../../utils/filterUnits";
 
 /**
  *  Renders the filtered units into Table
  */
 
-const FilteredUnitsTable = ({ units, filter }) => {
+const FilteredUnitsTable = ({ filteredUnits }) => {
   let history = useHistory();
 
   useEffect(() => {
     fetchUnits();
   }, []);
-
-  useEffect(() => {
-    console.log("getFilterResult()", getFilterResult(units, filter));
-  }, [filter]);
 
   return (
     <TableContainer component={Paper}>
@@ -41,9 +36,9 @@ const FilteredUnitsTable = ({ units, filter }) => {
         </TableHead>
 
         {/* Body part of table */}
-        {units.length > 0 ? (
+        {filteredUnits.length > 0 ? (
           <TableBody>
-            {units.map((row) => (
+            {filteredUnits.map((row) => (
               <TableRow
                 key={row.id}
                 onClick={() => history.push("/units/" + row.id)}
@@ -81,11 +76,9 @@ const FilteredUnitsTable = ({ units, filter }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  const { units, filter } = state;
+const mapStateToProps = ({ units }) => {
   return {
-    units,
-    filter,
+    filteredUnits: units.filteredUnits,
   };
 };
 

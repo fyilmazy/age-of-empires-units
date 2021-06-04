@@ -10,6 +10,4 @@ const sagaMiddleWare = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleWare));
 sagaMiddleWare.run(rootSaga);
 
-store.subscribe(() => console.log(store.getState()));
-
 export default store;
