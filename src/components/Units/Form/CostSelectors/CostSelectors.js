@@ -18,10 +18,10 @@ const CostSelectors = ({ filter, slider }) => {
   };
 
   // Handle slider commited selections
-  const handleFormSliderCommitted = (e, newValue) => {
+  const handleFormSliderCommitted = (name) => (e, newValue) => {
     updateSliderCommitted({
       newValue,
-      costType: e.target.ariaLabel,
+      costType: name,
     });
   };
 
@@ -39,11 +39,10 @@ const CostSelectors = ({ filter, slider }) => {
         <Slider
           defaultValue={[50, 100]}
           value={slider.food.value}
-          aria-label="food"
           onChange={(e, value) => {
             updateSlider({ costType: "food", costValue: value });
           }}
-          onChangeCommitted={handleFormSliderCommitted}
+          onChangeCommitted={handleFormSliderCommitted("food")}
           aria-labelledby="range-slider"
           valueLabelDisplay="auto"
           step={5}
@@ -64,11 +63,10 @@ const CostSelectors = ({ filter, slider }) => {
         <Slider
           defaultValue={[50, 100]}
           value={slider.wood.value}
-          aria-label="wood"
           onChange={(e, value) => {
             updateSlider({ costType: "wood", costValue: value });
           }}
-          onChangeCommitted={handleFormSliderCommitted}
+          onChangeCommitted={handleFormSliderCommitted("wood")}
           aria-labelledby="range-slider"
           valueLabelDisplay="auto"
           step={5}
@@ -89,11 +87,10 @@ const CostSelectors = ({ filter, slider }) => {
         <Slider
           defaultValue={50}
           value={slider.gold.value}
-          aria-label="gold"
           onChange={(e, value) => {
             updateSlider({ costType: "gold", costValue: value });
           }}
-          onChangeCommitted={handleFormSliderCommitted}
+          onChangeCommitted={handleFormSliderCommitted("gold")}
           aria-labelledby="range-slider"
           valueLabelDisplay="auto"
           step={5}

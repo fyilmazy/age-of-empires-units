@@ -12,11 +12,9 @@ import Paper from "@material-ui/core/Paper";
 
 const UnitDetails = ({ history, units }) => {
   const { id } = useParams();
-  console.log(units, id);
   const unitToRender = units.filter((unit) => {
     return unit.id.toString() === id;
   });
-  console.log("unitToRender", unitToRender);
   const unit = unitToRender[0];
   return (
     <div className="UnitDetails">

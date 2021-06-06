@@ -2,7 +2,7 @@ import updateAge from "./updateAge";
 import updateSlider from "./updateSlider";
 import updateSliderCommitted from "./updateSliderCommitted";
 import updateSwitch from "./updateSwitch";
-import fetchUnits from "./fetchUnitsSaga";
+import fetchUnits from "./fetchUnits";
 
 // TODO: combine actions by category
 

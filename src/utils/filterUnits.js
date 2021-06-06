@@ -16,7 +16,7 @@ const filterMaterial = (unit, selectedMaterial, min = 0, max = 200) => {
   if (!unitValue) {
     return false;
   }
-  return unitValue <= max && unitValue > min;
+  return unitValue <= max && unitValue >= min;
 };
 
 const getFilterResult = (units, filter) => {

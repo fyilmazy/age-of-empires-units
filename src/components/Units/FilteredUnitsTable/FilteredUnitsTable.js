@@ -25,7 +25,6 @@ const FilteredUnitsTable = ({ filteredUnits }) => {
   return (
     <TableContainer component={Paper}>
       <Table stickyHeader aria-label="sticky table" className="table">
-        {/* Head part of table */}
         <TableHead>
           <TableRow>
             <TableCell id="tHeadId">ID</TableCell>
@@ -34,8 +33,6 @@ const FilteredUnitsTable = ({ filteredUnits }) => {
             <TableCell align="center">Costs</TableCell>
           </TableRow>
         </TableHead>
-
-        {/* Body part of table */}
         {filteredUnits.length > 0 ? (
           <TableBody>
             {filteredUnits.map((row) => (
@@ -52,25 +49,23 @@ const FilteredUnitsTable = ({ filteredUnits }) => {
                   {row.cost
                     ? row.cost.Food !== (null || undefined)
                       ? ` Food: ${row.cost.Food},`
-                      : ""
-                    : ""}
+                      : null
+                    : null}
                   {row.cost
                     ? row.cost.Wood !== (null || undefined)
                       ? ` Wood: ${row.cost.Wood},`
-                      : ""
-                    : ""}
+                      : null
+                    : null}
                   {row.cost
                     ? row.cost.Gold !== (null || undefined)
                       ? ` Gold: ${row.cost.Gold}`
-                      : ""
+                      : null
                     : "No costs"}
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
-        ) : (
-          ""
-        )}
+        ) : null}
       </Table>
     </TableContainer>
   );
