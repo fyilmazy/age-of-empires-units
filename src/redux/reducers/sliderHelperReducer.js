@@ -1,9 +1,9 @@
 import TYPES from "../actionTypes/";
 
 const INITIAL_STATE = {
-  food: { value: [50, 100], min: 50, max: 100 },
-  wood: { value: [50, 100], min: 50, max: 100 },
-  gold: { value: [50, 100], min: 50, max: 100 },
+  food: { value: [0, 100], min: 0, max: 100 },
+  wood: { value: [0, 100], min: 0, max: 100 },
+  gold: { value: [0, 100], min: 0, max: 100 },
 };
 
 // Handle slider change on every slider step

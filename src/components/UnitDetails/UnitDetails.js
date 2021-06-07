@@ -64,23 +64,33 @@ const UnitDetails = ({ units, pageTitle }) => {
                 </TableRow>
                 <TableRow key={Math.random()}>
                   <TableCell>Wood Cost:</TableCell>
-                  <TableCell>{unit.cost.Wood ? unit.cost.Wood : "-"}</TableCell>
+                  <TableCell>
+                    {unit.cost ? (unit.cost.Wood ? unit.cost.Wood : "-") : "-"}
+                  </TableCell>
                 </TableRow>
                 <TableRow key={Math.random()}>
                   <TableCell>Food Cost:</TableCell>
-                  <TableCell>{unit.cost.Food ? unit.cost.Food : "-"}</TableCell>
+                  <TableCell>
+                    {unit.cost ? (unit.cost.Food ? unit.cost.Food : "-") : "-"}
+                  </TableCell>
                 </TableRow>
                 <TableRow key={Math.random()}>
                   <TableCell>Gold Cost:</TableCell>
-                  <TableCell>{unit.cost.Gold ? unit.cost.Gold : "-"}</TableCell>
+                  <TableCell>
+                    {unit.cost ? (unit.cost.Gold ? unit.cost.Gold : "-") : "-"}
+                  </TableCell>
                 </TableRow>
                 <TableRow key={Math.random()}>
                   <TableCell>Build Time:</TableCell>
-                  <TableCell>{unit.build_time}</TableCell>
+                  <TableCell>
+                    {unit.build_time ? unit.build_time : "-"}
+                  </TableCell>
                 </TableRow>
                 <TableRow key={Math.random()}>
                   <TableCell>Reload Time:</TableCell>
-                  <TableCell>{unit.reload_time}</TableCell>
+                  <TableCell>
+                    {unit.reload_time ? unit.reload_time : "-"}
+                  </TableCell>
                 </TableRow>
                 <TableRow key={Math.random()}>
                   <TableCell>Hit Points:</TableCell>

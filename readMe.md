@@ -8,10 +8,10 @@ This app filters Age of Empires units by given parameters on UI selectors.
 - Filter units by minimum required age
 - Filter units by minimum and maximum costs (Wood, Food, Gold) with sliders range between 0 - 200
 - Filter units by multiple cost and age selectors
-- Activate or deactivate costs filter
+- Activate or deactivate cost filters
 - Re-filter units on every filter selector change
 - List matching costs
-- Deatiled view of any matched cost on a different page
+- Detailed view of any matched cost on a different page
 - Handle all the data flow with Redux-Saga middleware on Redux
 
 ## Used Packages

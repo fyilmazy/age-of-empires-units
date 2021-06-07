@@ -5,20 +5,20 @@ const INITIAL_STATE = {
   costs: {
     food: {
       isActive: false,
-      value: [50, 100],
-      min: 50,
+      value: [0, 100],
+      min: 0,
       max: 100,
     },
     wood: {
       isActive: false,
-      value: [50, 100],
-      min: 50,
+      value: [0, 100],
+      min: 0,
       max: 100,
     },
     gold: {
       isActive: false,
-      value: [50, 100],
-      min: 50,
+      value: [0, 100],
+      min: 0,
       max: 100,
     },
   },
