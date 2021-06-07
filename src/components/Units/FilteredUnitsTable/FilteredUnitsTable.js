@@ -65,7 +65,16 @@ const FilteredUnitsTable = ({ filteredUnits }) => {
               </TableRow>
             ))}
           </TableBody>
-        ) : null}
+        ) : (
+          <TableBody>
+            <TableRow>
+              <TableCell variant="head" align="justify" color="secondary">
+                There are no units matching your search criteria. Please change
+                age and/or costs.
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        )}
       </Table>
     </TableContainer>
   );

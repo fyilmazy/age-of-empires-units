@@ -33,15 +33,22 @@
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        #description-t,
+        border-bottom: 1px solid rgba(224, 224, 224, 1);
+        #description-t {
+          align-self: center;
+          border: none;
+        }
         #description-d {
+          align-self: center;
           flex: 10;
+          border: none;
         }
       }
       .MuiTableRow-root {
         display: flex;
         align-items: center;
         height: 100%;
+
         .MuiTableCell-root {
           align-items: center;
           min-height: 20px;

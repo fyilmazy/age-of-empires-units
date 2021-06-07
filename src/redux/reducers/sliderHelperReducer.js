@@ -1,15 +1,15 @@
+import TYPES from "../actionTypes/";
+
 const INITIAL_STATE = {
   food: { value: [50, 100], min: 50, max: 100 },
   wood: { value: [50, 100], min: 50, max: 100 },
   gold: { value: [50, 100], min: 50, max: 100 },
 };
 
-const UPDATE_SLIDER = "UPDATE_SLIDER";
-
 // Handle slider change on every slider step
 const sliderHelperReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UPDATE_SLIDER:
+    case TYPES.UPDATE_SLIDER:
       return {
         ...state,
         [action.payload.costType]: {

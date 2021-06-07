@@ -5,7 +5,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import StyledRadio from "./StyledRadio";
 import { connect } from "react-redux";
-import { updateAge } from "../../../../redux/actionCreators";
+import { updateAge } from "../../../../redux/actionCreators/";
 
 /**
  * Renders age selection form

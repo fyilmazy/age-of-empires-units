@@ -1,3 +1,5 @@
+import TYPES from "../actionTypes/";
+
 const INITIAL_STATE = {
   age: "all",
   costs: {
@@ -22,16 +24,12 @@ const INITIAL_STATE = {
   },
 };
 
-const UPDATE_AGE = "UPDATE_AGE";
-const UPDATE_SWITCH = "UPDATE_SWITCH";
-const UPDATE_SLIDER_COMMITTED = "UPDATE_SLIDER_COMMITTED";
-
 const filterReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UPDATE_AGE:
+    case TYPES.UPDATE_AGE:
       return { ...state, age: action.payload };
 
-    case UPDATE_SWITCH:
+    case TYPES.UPDATE_SWITCH:
       return {
         ...state,
         costs: {
@@ -43,7 +41,7 @@ const filterReducer = (state = INITIAL_STATE, action) => {
         },
       };
 
-    case UPDATE_SLIDER_COMMITTED:
+    case TYPES.UPDATE_SLIDER_COMMITTED:
       return {
         ...state,
         costs: {

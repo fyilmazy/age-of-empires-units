@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Units from "./components/Units";
 import UnitDetails from "./components/UnitDetails";
-import { Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 function App() {
@@ -15,20 +15,18 @@ function App() {
         <div className="wrapper">
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Home} pageTitle="Home"></Route>
-            <Route
-              exact
-              path="/units"
-              component={Units}
-              pageTitle="Units"
-              history={history}
-            ></Route>
-            <Route
-              path="/units/:id"
-              component={UnitDetails}
-              pageTitle="Unit Detail"
-              history={history}
-            ></Route>
+            <Route exact path="/">
+              <Home pageTitle="Home Page" />
+            </Route>
+            <Route exact path="/units">
+              <Units pageTitle="Units Page" />
+            </Route>
+            <Route path="/units/:id">
+              <UnitDetails pageTitle="Unit Details" />
+            </Route>
+            <Route default component={Home}>
+              <Redirect to="/" />
+            </Route>
           </Switch>
           <Footer />
         </div>

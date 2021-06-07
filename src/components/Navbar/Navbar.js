@@ -1,51 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Navbar.scss";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
 
 // Set the page title here because of it is in navbar
-const Navbar = () => {
-  // TODO: move the state to redux store
-  // title state for pages
-  const [title, setTitle] = useState("Home Page");
-
-  const { pathname } = useLocation();
-
-  // Get id from pathname
-  const regex = /([^/units/])([^&]+){0,}/g;
-  const id = pathname.match(regex);
-
-  // Hold all possible page titles in an Array
-  const pageTitles = ["Home Page", "Units Page", "Unit Detail Page"];
-
-  /** Function getPageTitle check if id is truthy,
-   * else check pathname itself by switch case.
-   * In the end, return the page title.
-   */
-  const getPageTitle = (pathname, id) => {
-    if (id !== null) {
-      setTitle(pageTitles[2]);
-    } else {
-      switch (pathname) {
-        case "/units":
-          setTitle(pageTitles[1]);
-          break;
-        case "/":
-          setTitle(pageTitles[0]);
-          break;
-        default:
-          setTitle(pageTitles[0]);
-      }
-    }
-  };
-
-  useEffect(() => {
-    getPageTitle(pathname, id);
-  }, [pathname]);
-
+const Navbar = ({ title }) => {
   return (
     <div className="Navbar">
       <AppBar position="relative">
@@ -71,4 +34,11 @@ const Navbar = () => {
   );
 };
 
-export default React.memo(Navbar);
+const mapStateToProps = (state) => {
+  const { title } = state.pageTitle;
+  return {
+    title,
+  };
+};
+
+export default connect(mapStateToProps)(React.memo(Navbar));
