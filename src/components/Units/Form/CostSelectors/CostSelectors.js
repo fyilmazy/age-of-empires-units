@@ -26,7 +26,7 @@ const CostSelectors = ({ filter, slider }) => {
   };
 
   return (
-    <div className="costSelectors">
+    <div className="costSelectors" data-testid="costSelectors">
       <div className="costSelectorWrapper">
         <Switch
           checked={filter.costs.food.isActive}
