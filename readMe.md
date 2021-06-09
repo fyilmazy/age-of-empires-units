@@ -2,6 +2,36 @@
 
 This app filters Age of Empires units by given parameters on UI selectors.
 
+## Live Link
+
+[Netlify](https://aoe-units.netlify.app/)
+
+## ScreenShots
+
+### Desktop Home
+
+![Desktop Home](https://github.com/fyilmazy/age-of-empires-units/blob/main/ss/desktop-home.png?raw=true)
+
+### Desktop Units
+
+![Desktop Units](https://github.com/fyilmazy/age-of-empires-units/blob/main/ss/desktop-units.png?raw=true)
+
+### Desktop Unit Details
+
+![Desktop Unit Details](https://github.com/fyilmazy/age-of-empires-units/blob/main/ss/desktop-unit-details.png?raw=true)
+
+### Mobile Home
+
+![Mobile Home](https://github.com/fyilmazy/age-of-empires-units/blob/main/ss/mobile-home.jpeg?raw=true)
+
+### Mobile Units
+
+![Mobile Units](https://github.com/fyilmazy/age-of-empires-units/blob/main/ss/mobile-units.jpeg?raw=true)
+
+### Mobile Unit Details
+
+![Mobile Unit Details](https://github.com/fyilmazy/age-of-empires-units/blob/main/ss/mobile-unit-details.png?raw=true)
+
 ## Features
 
 - Fetch units on page load from JSON file
@@ -13,6 +43,7 @@ This app filters Age of Empires units by given parameters on UI selectors.
 - List matching costs
 - Detailed view of any matched cost on a different page
 - Handle all the data flow with Redux-Saga middleware on Redux
+- Responsive design
 
 ## Used Packages
 
