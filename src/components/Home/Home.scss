@@ -6,11 +6,8 @@
   .MuiContainer-root {
     margin: auto;
     width: 60%;
-    @media screen and (max-width: 1280px) {
-      width: 70%;
-    }
     @media screen and (max-width: 1024px) {
-      width: 80%;
+      width: 70%;
     }
     @media screen and (max-width: 768px) {
       width: 90%;

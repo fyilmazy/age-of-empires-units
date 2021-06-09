@@ -21,23 +21,19 @@
           display: flex;
 
           .MuiTableCell-root {
-            flex: 10;
             cursor: default;
-            @media screen and (max-width: 480px) {
-              flex: 9;
-            }
           }
           th:first-child {
             flex: 1;
-            @media screen and (max-width: 480px) {
-              flex: 2;
-            }
+          }
+          th:nth-child(2) {
+            flex: 10;
+          }
+          th:nth-child(3) {
+            flex: 10;
           }
           th:nth-child(4) {
             flex: 10;
-            @media screen and (max-width: 480px) {
-              flex: 10;
-            }
           }
         }
       }
@@ -72,7 +68,7 @@
           flex: 10;
         }
         td:nth-child(4) {
-          flex: 15;
+          flex: 10;
           @media screen and (max-width: 480px) {
             max-width: 80px;
           }
