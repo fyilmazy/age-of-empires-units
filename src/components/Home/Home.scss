@@ -6,5 +6,8 @@
   .MuiContainer-root {
     margin: auto;
     width: 60%;
+    @media screen and (max-width: 480px) {
+      width: 100%;
+    }
   }
 }

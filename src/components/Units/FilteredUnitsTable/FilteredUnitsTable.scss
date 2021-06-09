@@ -6,24 +6,38 @@
     margin: auto;
     max-width: 700px;
     margin-bottom: 50px;
+    @media screen and (max-width: 768px) {
+      max-width: 90vw;
+    }
     & > .MuiTable-root {
       margin: auto;
       max-width: 700px;
+
       // Table Head
       //
       .MuiTableHead-root {
         .MuiTableRow-root {
           border-bottom: 1px solid rgb(224, 224, 224);
           display: flex;
+
           .MuiTableCell-root {
             flex: 10;
             cursor: default;
+            @media screen and (max-width: 480px) {
+              flex: 9;
+            }
           }
           th:first-child {
             flex: 1;
+            @media screen and (max-width: 480px) {
+              flex: 2;
+            }
           }
           th:nth-child(4) {
-            flex: 15;
+            flex: 10;
+            @media screen and (max-width: 480px) {
+              flex: 10;
+            }
           }
         }
       }
@@ -36,13 +50,22 @@
     // Table Body
     //
     .MuiTableBody-root {
+      // @media screen and (max-width: 480px) {
+      //   max-width: 80vw;
+      // }
       .MuiTableRow-root {
         display: flex;
+        @media screen and (max-width: 480px) {
+          min-width: 15px;
+        }
         th {
           flex: 1;
           border-right: 1px solid rgb(224, 224, 224);
           text-align: center;
           min-width: 25px;
+          @media screen and (max-width: 480px) {
+            min-width: 15px;
+          }
         }
         td {
           text-align: center;
@@ -50,6 +73,9 @@
         }
         td:nth-child(4) {
           flex: 15;
+          @media screen and (max-width: 480px) {
+            max-width: 80px;
+          }
         }
       }
     }
